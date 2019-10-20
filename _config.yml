@@ -159,7 +159,12 @@ widgets:
         # Widget name
         type: toc
         # Where should the widget be placed, left or right
-        position: left
+        position: right
+    -
+        # Widget name
+        type: recent_posts
+        # Where should the widget be placed, left or right
+        position: right
     -
         # Widget name
         type: links
@@ -181,7 +186,7 @@ widgets:
         position: right
     -
         # Widget name
-        type: recent_posts
+        type: tag
         # Where should the widget be placed, left or right
         position: right
     -
@@ -189,11 +194,7 @@ widgets:
         type: archive
         # Where should the widget be placed, left or right
         position: right
-    -
-        # Widget name
-        type: tag
-        # Where should the widget be placed, left or right
-        position: right
+# =========================================================================================================== #
 # Other plugin settings
 plugins:
     # Enable page animations
