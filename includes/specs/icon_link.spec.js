@@ -8,7 +8,8 @@ module.exports = {
         [doc]: 'Path or URL to the menu item, and/or link icon class names',
         icon: {
             [required]: true,
-            [type]: 'string',
+            // [type]: 'string',
+            [type]: ['string', 'array'],
             [doc]: 'Link icon class names'
         },
         url: {

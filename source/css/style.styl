@@ -23,7 +23,13 @@ body, button, input, select, textarea
     .is-2-column .container
         max-width: screen-desktop - 2 * gap
         width: screen-desktop - 2 * gap
+    .is-3-column .container
+        max-width: screen-widescreen - gap
+        width: screen-widescreen - gap
 @media screen and (min-width: screen-fullhd)
+    .is-3-column .container
+        max-width: screen-fullhd - 2 * gap
+        width: screen-fullhd - 2 * gap
     .is-2-column .container
         max-width: screen-widescreen - 2 * gap
         width: screen-widescreen - 2 * gap
@@ -124,7 +130,9 @@ img.thumbnail
     .media + .media
         margin-top: 0
     .menu-list li ul
-        margin-right: 0
+        margin-right: 0 
+    .menu-list a
+        transition: background-color 0.3s ease-in-out
     .menu-list a.level
         display: flex
     .has-text-centered figure.image
@@ -172,10 +180,21 @@ img.thumbnail
             top: calc(0.3rem + 9px)
 
 .article
+    padding: 1.5rem 1.8rem
     .article-meta
-        margin-bottom: 0.5rem !important
+        margin-bottom: 1.5rem !important
+        >:first-child
+            flex-wrap: wrap
+            width: 100%
+            >*
+                flex-grow: 0 !important
+    .title
+        margin: 0 0 0.5rem -0.1rem
+        .fas
+            margin-right: 0.5rem
     .content
         font-size: 1.1rem
+        letter-spacing: 0.02rem
         blockquote.pullquote
             float: right
             max-width: 50%
@@ -262,6 +281,8 @@ img.thumbnail
 
 .is-overflow-x-auto
     overflow-x: auto !important
+    &::-webkit-scrollbar
+        width:0 !important
 
 .is-flex-grow
     flex-grow: 1 !important
@@ -339,7 +360,7 @@ img.thumbnail
     h5
         font-size: 1em
     code, pre
-        font-size: 0.85em
+        font-size: 0.95em
         font-family: family-mono
     code
         color: hsl(348, 100%, 61%)
@@ -464,3 +485,23 @@ figure.highlight
             border: none
     .file
         all: initial
+
+/* ---------------------------------
+ *       文章详情页添加版权声明
+ * --------------------------------- */
+.post-copyright
+    font-size: 1rem
+    letter-spacing: 0.02rem
+    word-break: break-all
+    margin: 2.5rem 0 0
+    padding: 1rem 1rem
+    border-left: 3px solid #3273dc
+    background-color: #F9F9F9
+
+.article {counter-reset:section}
+.article h2{counter-reset:sub-section}
+.article h3{counter-reset:composite}
+.article h4{counter-reset:detail}
+.article h2:before{content:counter(section) " ";counter-increment:section}
+.article h3:before{content:counter(section) "." counter(sub-section) " ";counter-increment:sub-section}
+.article h4:before{content:counter(section) "." counter(sub-section) "." counter(composite) " ";counter-increment:composite}
